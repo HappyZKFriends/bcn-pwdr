@@ -1,8 +1,7 @@
 use clap::Parser;
 use clap::Subcommand;
 
-use compiler::compile_pil_or_asm;
-use number::GoldilocksField;
+use zkbeacon_powdr::powdr_apis::generate_proof;
 
 #[derive(Subcommand)]
 enum ZKBeaconCommands {
@@ -21,18 +20,6 @@ enum Commands {
 struct Cli {
 	#[command(subcommand)]
 	command: Commands,
-}
-
-fn generate_proof(file_name: &str, inputs: Vec<GoldilocksField>) {
-	compile_pil_or_asm(
-		file_name,
-		inputs,
-		&mktemp::Temp::new_dir().unwrap(), //TODO: save generated files
-		true,
-		// TODO: choose zk backend with command-line
-		None
-	)
-	.unwrap();
 }
 
 // TODO: add light client module
