@@ -3,5 +3,6 @@
 resolver = "2"
 
 members = [
-	"zkbeacon_cli"
+	"zkbeacon_cli",
+	"zkbeacon_client"
 ]
