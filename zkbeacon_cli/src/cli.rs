@@ -1,7 +1,7 @@
 use clap::Parser;
 use clap::Subcommand;
 
-use zkbeacon_powdr::powdr_apis::generate_proof;
+use zkbeacon_powdr::powdr_backend::generate_pil_proof;
 
 #[derive(Subcommand)]
 enum ZKBeaconCommands {
@@ -32,7 +32,7 @@ pub fn run_cli() {
 				ZKBeaconCommands::Run => {
 					// TODO: call verifier implementation
 					let circuit_file = "./zkbeacon_verifier/asm/arith384.asm";
-					generate_proof(circuit_file, vec![]);
+					generate_pil_proof(circuit_file, vec![]);
 				}
 			}
 		}
