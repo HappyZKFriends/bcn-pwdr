@@ -5,43 +5,48 @@ use ethers::{types::Address, utils};
 use eyre::Result;
 use helios::{config::networks::Network, prelude::*};
 
+pub mod get_verifiers;
+
+use get_verifiers::get_beacon_block_verifiers;
+
 #[tokio::main]
 async fn main() -> Result<()> {
-    env_logger::Builder::from_env(Env::default().default_filter_or("info")).init();
+    let data = get_beacon_block_verifiers().unwrap();
 
-    let mainnet_rpc_url = "https://eth-mainnet.g.alchemy.com/v2/SPWo8qBxuzCQqpiyI0HdwoPoAwQmOJPG";
-    println!("Using untrusted RPC URL [REDACTED]");
+    println!("Verifiers: {}", data);
 
-    let consensus_rpc = "https://www.lightclientdata.org";
-    println!("Using consensus RPC URL: {}", consensus_rpc);
+    // env_logger::Builder::from_env(Env::default().default_filter_or("info")).init();
 
-    let mut client: Client = ClientBuilder::new()
-        .network(Network::MAINNET)
-        .consensus_rpc(consensus_rpc)
-        .execution_rpc(mainnet_rpc_url)
-        .data_dir(PathBuf::from("/tmp/helios"))
-        .build()?;
+    // let mainnet_rpc_url = "https://eth-mainnet.g.alchemy.com/v2/SPWo8qBxuzCQqpiyI0HdwoPoAwQmOJPG";
+    // println!("Using untrusted RPC URL [REDACTED]");
 
-    println!(
-        "Built client on network \"{}\" with external checkpoint fallbacks",
-        Network::MAINNET
-    );
+    // let consensus_rpc = "http://public-mainnet-node.ethereum.org/";
+    // println!("Using consensus RPC URL: {}", consensus_rpc);
 
-    client.start().await?;
+    // let mut client: Client = ClientBuilder::new()
+    //     .network(Network::MAINNET)
+    //     .consensus_rpc(consensus_rpc)
+    //     .execution_rpc(mainnet_rpc_url)
+    //     .data_dir(PathBuf::from("/tmp/helios"))
+    //     .build()?;
 
-    let head_block_num = client
-        .get_block_by_number(BlockTag::Number((18047230)), true)
-        .await?
-        .unwrap();
-    let addr = Address::from_str("0x00000000219ab540356cBB839Cbe05303d7705Fa")?;
-    let block = BlockTag::Latest;
-    let balance = client.get_balance(&addr, block).await?;
+    // println!(
+    //     "Built client on network \"{}\" with external checkpoint fallbacks",
+    //     Network::MAINNET
+    // );
 
-    println!("synced up to block: {}", head_block_num.hash);
-    println!(
-        "balance of deposit contract: {}",
-        utils::format_ether(balance)
-    );
+    // client.start().await?;
+
+    // let head_block_num = client.get_block_by_number(BlockTag::Number((18047230)), true).await?;
+    // let addr = Address::from_str("0x00000000219ab540356cBB839Cbe05303d7705Fa")?;
+    // let block = BlockTag::Latest;
+    // let balance = client.get_balance(&addr, block).await?;
+
+    // println!("synced up to block: {}", head_block_num.unwrap().hash);
+    // println!(
+    //     "balance of deposit contract: {}",
+    //     utils::format_ether(balance)
+    // );
 
     Ok(())
 }
