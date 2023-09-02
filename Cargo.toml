@@ -6,3 +6,5 @@ members = [
     "cli",
     "zkbeacon_client",
 ]
+
+default-members = ["cli"]
