@@ -1,0 +1,19 @@
+[package]
+name = "zkbeacon_cli"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.release]
+strip = true
+
+[dependencies]
+mktemp = "0.5.0"
+clap = { version = "^4.3.12", features = ["derive"] }
+compiler = { path = "../../powdr/compiler" }
+number = { path = "../../powdr/number" }
+backend = { path = "../../powdr/backend" }
+
+[[bin]]
+name = "zkbeacon"
+path = "src/main.rs"

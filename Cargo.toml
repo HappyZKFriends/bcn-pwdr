@@ -1,10 +1,7 @@
-[package]
-name = "zkbeacon"
-version = "0.1.0"
-edition = "2021"
+[workspace]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+resolver = "2"
 
-[dependencies]
-runtime = { git = "https://github.com/powdr-org/powdr.git", branch="main" }
-#runtime = { path = "../powdr/riscv/runtime" }
+members = [
+	"zkbeacon_cli"
+]
