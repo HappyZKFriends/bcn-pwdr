@@ -33,7 +33,7 @@ pub fn run_cli() {
 				ZKBeaconCommands::Run => {
 					// TODO: call verifier implementation
 					let inputs: Vec<GoldilocksField> = vec![];
-					let circuit_file = "./zkbeacon_verifier/asm/arith384.asm";
+					let circuit_file = "./circuits/asm/arith384.asm";
 					compile_pil_or_asm(
 						circuit_file,
 						inputs,
