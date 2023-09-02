@@ -1124,6 +1124,7 @@ machine Main {
 	reg A21[<=];
 	reg A22[<=];
 	reg A23[<=];
+	reg B0[<=];
 	reg B1[<=];
 	reg B2[<=];
 	reg B3[<=];
@@ -1147,6 +1148,7 @@ machine Main {
 	reg B21[<=];
 	reg B22[<=];
 	reg B23[<=];
+	reg C0[<=];
 	reg C1[<=];
 	reg C2[<=];
 	reg C3[<=];
@@ -1170,6 +1172,7 @@ machine Main {
 	reg C21[<=];
 	reg C22[<=];
 	reg C23[<=];
+	reg D0[<=];
 	reg D1[<=];
 	reg D2[<=];
 	reg D3[<=];
@@ -1193,6 +1196,7 @@ machine Main {
 	reg D21[<=];
 	reg D22[<=];
 	reg D23[<=];
+	reg E0[<=];
 	reg E1[<=];
 	reg E2[<=];
 	reg E3[<=];
@@ -1220,29 +1224,29 @@ machine Main {
 
 	BLS12_381 bls;
 
-	instr arith A_0, A_1, A_2, A_3, A_4, A_5,
-				A_6, A_7, A_8, A_9, A_10, A_11,
-				A_12, A_13, A_14, A_15, A_16, A_17,
-				A_18, A_19, A_20, A_21, A_22, A_23,
-				B_0, B_1, B_2, B_3, B_4, B_5,
-				B_6, B_7, B_8, B_9, B_10, B_11,
-				B_12, B_13, B_14, B_15, B_16, B_17,
-				B_18, B_19, B_20, B_21, B_22, B_23,
-				C_0, C_1, C_2, C_3, C_4, C_5,
-				C_6, C_7, C_8, C_9, C_10, C_11,
-				C_12, C_13, C_14, C_15, C_16, C_17,
-				C_18, C_19, C_20, C_21, C_22, C_23,
-				D_0, D_1, D_2, D_3, D_4, D_5,
-				D_6, D_7, D_8, D_9, D_10, D_11,
-				D_12, D_13, D_14, D_15, D_16, D_17,
-				D_18, D_19, D_20, D_21, D_22, D_23,
-				E_0, E_1, E_2, E_3, E_4, E_5,
-				E_6, E_7, E_8, E_9, E_10, E_11,
-				E_12, E_13, E_14, E_15, E_16, E_17,
-				E_18, E_19, E_20, E_21, E_22, E_23 -> OUT = bls.arith
+	instr arith A0, A1, A2, A3, A4, A5,
+				A6, A7, A8, A9, A10, A11,
+				A12, A13, A14, A15, A16, A17,
+				A18, A19, A20, A21, A22, A23,
+				B0, B1, B2, B3, B4, B5,
+				B6, B7, B8, B9, B10, B11,
+				B12, B13, B14, B15, B16, B17,
+				B18, B19, B20, B21, B22, B23,
+				C0, C1, C2, C3, C4, C5,
+				C6, C7, C8, C9, C10, C11,
+				C12, C13, C14, C15, C16, C17,
+				C18, C19, C20, C21, C22, C23,
+				D0, D1, D2, D3, D4, D5,
+				D6, D7, D8, D9, D10, D11,
+				D12, D13, D14, D15, D16, D17,
+				D18, D19, D20, D21, D22, D23,
+				E0, E1, E2, E3, E4, E5,
+				E6, E7, E8, E9, E10, E11,
+				E12, E13, E14, E15, E16, E17,
+				E18, E19, E20, E21, E22, E23 -> OUT = bls.arith
 
-	instr assert_eq X0, X1 {
-		X0 = X1
+	instr assert_eq A0, A1 {
+		A0 = A1
 	}
 
 	instr loop { pc' = pc }
