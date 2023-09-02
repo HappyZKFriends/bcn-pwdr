@@ -1,7 +1,8 @@
 use clap::Parser;
 use clap::Subcommand;
 
-use zkbeacon_powdr::powdr_backend::generate_pil_proof;
+use powdr_compiler::compile_pil_or_asm;
+use powdr_number::GoldilocksField;
 
 #[derive(Subcommand)]
 enum ZKBeaconCommands {
@@ -31,8 +32,16 @@ pub fn run_cli() {
 			match command {
 				ZKBeaconCommands::Run => {
 					// TODO: call verifier implementation
+					let inputs: Vec<GoldilocksField> = vec![];
 					let circuit_file = "./zkbeacon_verifier/asm/arith384.asm";
-					generate_pil_proof(circuit_file, vec![]);
+					compile_pil_or_asm(
+						circuit_file,
+						inputs,
+						&mktemp::Temp::new_dir().unwrap(), //TODO: save generated witnesses and constants
+						true,
+						None //TODO: allow use of other backends, e.g. Halo2
+					)
+					.unwrap();
 				}
 			}
 		}

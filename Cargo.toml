@@ -3,7 +3,5 @@
 resolver = "2"
 
 members = [
-	"zkbeacon_cli",
-	"zkbeacon_client",
-	"zkbeacon_powdr"
+	"cli"
 ]

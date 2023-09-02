@@ -7,6 +7,28 @@ machine BLS12_381(latch, function_id) {
 
 	degree 65536;
 
+	function arith<0> a_0, a_1, a_2, a_3, a_4, a_5,
+						a_6, a_7, a_8, a_9, a_10, a_11,
+						a_12, a_13, a_14, a_15, a_16, a_17,
+						a_18, a_19, a_20, a_21, a_22, a_23,
+						b_0, b_1, b_2, b_3, b_4, b_5,
+						b_6, b_7, b_8, b_9, b_10, b_11,
+						b_12, b_13, b_14, b_15, b_16, b_17,
+						b_18, b_19, b_20, b_21, b_22, b_23,
+						c_0, c_1, c_2, c_3, c_4, c_5,
+						c_6, c_7, c_8, c_9, c_10, c_11,
+						c_12, c_13, c_14, c_15, c_16, c_17,
+						c_18, c_19, c_20, c_21, c_22, c_23,
+						d_0, d_1, d_2, d_3, d_4, d_5,
+						d_6, d_7, d_8, d_9, d_10, d_11,
+						d_12, d_13, d_14, d_15, d_16, d_17,
+						d_18, d_19, d_20, d_21, d_22, d_23,
+						e_0, e_1, e_2, e_3, e_4, e_5,
+						e_6, e_7, e_8, e_9, e_10, e_11,
+						e_12, e_13, e_14, e_15, e_16, e_17,
+						e_18, e_19, e_20, e_21, e_22, e_23 -> eq {
+	}
+
 	constraints {
 		col witness function_id;
 		col fixed latch = [1]*;
@@ -201,7 +223,6 @@ machine BLS12_381(latch, function_id) {
 		/****
 		* LATCH POLS: a,b,c,d,e
 		*****/
-
 		a_0' * (1-CLK_47) = a_0 * (1-CLK_47);
 		a_1' * (1-CLK_47) = a_1 * (1-CLK_47);
 		a_2' * (1-CLK_47) = a_2 * (1-CLK_47);
@@ -1078,11 +1099,174 @@ machine Main {
 
 	degree 65536;
 
-	BLS12_381 pairing;
-
 	reg pc[@pc];
+	reg A0[<=];
+	reg A1[<=];
+	reg A2[<=];
+	reg A3[<=];
+	reg A4[<=];
+	reg A5[<=];
+	reg A6[<=];
+	reg A7[<=];
+	reg A8[<=];
+	reg A9[<=];
+	reg A10[<=];
+	reg A11[<=];
+	reg A12[<=];
+	reg A13[<=];
+	reg A14[<=];
+	reg A15[<=];
+	reg A16[<=];
+	reg A17[<=];
+	reg A18[<=];
+	reg A19[<=];
+	reg A20[<=];
+	reg A21[<=];
+	reg A22[<=];
+	reg A23[<=];
+	reg B1[<=];
+	reg B2[<=];
+	reg B3[<=];
+	reg B4[<=];
+	reg B5[<=];
+	reg B6[<=];
+	reg B7[<=];
+	reg B8[<=];
+	reg B9[<=];
+	reg B10[<=];
+	reg B11[<=];
+	reg B12[<=];
+	reg B13[<=];
+	reg B14[<=];
+	reg B15[<=];
+	reg B16[<=];
+	reg B17[<=];
+	reg B18[<=];
+	reg B19[<=];
+	reg B20[<=];
+	reg B21[<=];
+	reg B22[<=];
+	reg B23[<=];
+	reg C1[<=];
+	reg C2[<=];
+	reg C3[<=];
+	reg C4[<=];
+	reg C5[<=];
+	reg C6[<=];
+	reg C7[<=];
+	reg C8[<=];
+	reg C9[<=];
+	reg C10[<=];
+	reg C11[<=];
+	reg C12[<=];
+	reg C13[<=];
+	reg C14[<=];
+	reg C15[<=];
+	reg C16[<=];
+	reg C17[<=];
+	reg C18[<=];
+	reg C19[<=];
+	reg C20[<=];
+	reg C21[<=];
+	reg C22[<=];
+	reg C23[<=];
+	reg D1[<=];
+	reg D2[<=];
+	reg D3[<=];
+	reg D4[<=];
+	reg D5[<=];
+	reg D6[<=];
+	reg D7[<=];
+	reg D8[<=];
+	reg D9[<=];
+	reg D10[<=];
+	reg D11[<=];
+	reg D12[<=];
+	reg D13[<=];
+	reg D14[<=];
+	reg D15[<=];
+	reg D16[<=];
+	reg D17[<=];
+	reg D18[<=];
+	reg D19[<=];
+	reg D20[<=];
+	reg D21[<=];
+	reg D22[<=];
+	reg D23[<=];
+	reg E1[<=];
+	reg E2[<=];
+	reg E3[<=];
+	reg E4[<=];
+	reg E5[<=];
+	reg E6[<=];
+	reg E7[<=];
+	reg E8[<=];
+	reg E9[<=];
+	reg E10[<=];
+	reg E11[<=];
+	reg E12[<=];
+	reg E13[<=];
+	reg E14[<=];
+	reg E15[<=];
+	reg E16[<=];
+	reg E17[<=];
+	reg E18[<=];
+	reg E19[<=];
+	reg E20[<=];
+	reg E21[<=];
+	reg E22[<=];
+	reg E23[<=];
+	reg OUT;
+
+	BLS12_381 bls;
+
+	instr arith A_0, A_1, A_2, A_3, A_4, A_5,
+				A_6, A_7, A_8, A_9, A_10, A_11,
+				A_12, A_13, A_14, A_15, A_16, A_17,
+				A_18, A_19, A_20, A_21, A_22, A_23,
+				B_0, B_1, B_2, B_3, B_4, B_5,
+				B_6, B_7, B_8, B_9, B_10, B_11,
+				B_12, B_13, B_14, B_15, B_16, B_17,
+				B_18, B_19, B_20, B_21, B_22, B_23,
+				C_0, C_1, C_2, C_3, C_4, C_5,
+				C_6, C_7, C_8, C_9, C_10, C_11,
+				C_12, C_13, C_14, C_15, C_16, C_17,
+				C_18, C_19, C_20, C_21, C_22, C_23,
+				D_0, D_1, D_2, D_3, D_4, D_5,
+				D_6, D_7, D_8, D_9, D_10, D_11,
+				D_12, D_13, D_14, D_15, D_16, D_17,
+				D_18, D_19, D_20, D_21, D_22, D_23,
+				E_0, E_1, E_2, E_3, E_4, E_5,
+				E_6, E_7, E_8, E_9, E_10, E_11,
+				E_12, E_13, E_14, E_15, E_16, E_17,
+				E_18, E_19, E_20, E_21, E_22, E_23 -> OUT = bls.arith
+
+	instr assert_eq X0, X1 {
+		X0 = X1
+	}
+
+	instr loop { pc' = pc }
+
+	// https://eips.ethereum.org/EIPS/eip-2537
+	// Generators:
+	// G1:
+	// X = 0x17f1d3a73197d7942695638c4fa9ac0fc3688c4f9774b905a14e3a3f171bac586c55e83ff97a1aeffb3af00adb22c6bb
+	// Y = 0x08b3f481e3aaa0f1a09e30ed741d8ae4fcf5e095d5d00af600db18cb2c04b3edd03cc744a2888ae40caa232946c5e7e1
+	// G2:
+	// X c0 = 0x024aa2b2f08f0a91260805272dc51051c6e47ad4fa403b02b4510b647ae3d1770bac0326a805bbefd48056c8c121bdb8
+	// X c1 = 0x13e02b6052719f607dacd3a088274f65596bd0d09920b61ab5da61bbdc7f5049334cf11213945d57e5ac7d055d042b7e
+	// Y c0 = 0x0ce5d527727d6e118cc9cdc6da2e351aadfd9baa8cbdd3a76d429a695160d12c923ac9cc3baca289e193548608b82801
+	// Y c1 = 0x0606c4a02ea734cc32acd2b02bc28b99cb3e287e85a763af267492ab572e99ab3f370d275cec1da1aaa9075ff05f79be
 
 	function main {
+
+		OUT <== arith(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		assert_eq OUT, 0x115cc0f5e7d690413df64c6b9662e9cf2a3617f2743245519e19607a4417189a;
+
 		return;
 	}
 }

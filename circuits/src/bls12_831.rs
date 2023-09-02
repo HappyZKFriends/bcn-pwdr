@@ -10,7 +10,7 @@ fn main() {
 	blockVerifier();
 }
 
-fn blockVerfier() {
+fn blockVerifier() {
 	// TODO: this is just an example from the powdr documentation, replace it with a useful stuff
 	// i.e. calling the circuits
 
