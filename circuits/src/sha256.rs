@@ -281,7 +281,7 @@ impl Default for Hash {
 
 #[no_mangle]
 fn main() {
-    //FIXME
+    //FIXME: add working example that tests the sha256 hash function
     let mut s = Hash::new();
     s.update([69u8, 1]);
     let h = s.finalize();
