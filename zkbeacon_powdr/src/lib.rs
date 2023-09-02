@@ -1,1 +1,1 @@
-pub mod powdr_apis;
+pub mod powdr_backend;
