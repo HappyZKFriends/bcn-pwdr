@@ -22,7 +22,8 @@ rustup component add rust-analyzer --toolchain nightly-2023-08-03-x86_64-unknown
 ```
 rustup target add riscv32imac-unknown-none-elf
 cd powdr
-cargo run rust ../zkbeacon/zkbeacon_verifier/src/lib.rs --output-directory ../zkbeacon/verifier_data --force --inputs 1,2,3
+mkdir circuits_data
+cargo run rust ../zkbeacon/circuits/src/sha256.rs --output-directory ../zkbeacon/circuits_data --force
 ```
 
 3. Compiling a pil circuit
@@ -30,7 +31,8 @@ cargo run rust ../zkbeacon/zkbeacon_verifier/src/lib.rs --output-directory ../zk
 - Compile and run pil/asm circuit
 ```
 cd powdr
-cargo run pil ../zkbeacon/zkbeacon_verifier/asm/arith384.asm --output-directory ../zkbeacon/verifier_data --force
+mkdir circuits_data
+cargo run pil ../zkbeacon/circuits/asm/arith384.asm --output-directory ../zkbeacon/circuits_data --force
 ```
 
 ### Running using the zkbeacon CLI and powdr API

@@ -281,10 +281,9 @@ impl Default for Hash {
 
 #[no_mangle]
 fn main() {
-    // TODO: make a example that works
+    //FIXME
     let mut s = Hash::new();
-    s.update([69u8, 100]);
-    s.update([69u8, 150]);
+    s.update([69u8, 1]);
     let h = s.finalize();
     assert_eq!(
         &h[..],
