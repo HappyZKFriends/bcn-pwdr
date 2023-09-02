@@ -1,0 +1,20 @@
+[package]
+name = "cli"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.release]
+strip = true
+
+[dependencies]
+mktemp = "0.5.0"
+clap = { version = "^4.3.12", features = ["derive"] }
+powdr_compiler = { git = "https://github.com/HappyZKFriends/powdr.git", branch="main", package="compiler" }
+powdr_backend = { git = "https://github.com/HappyZKFriends/powdr.git", branch="main", package="backend" }
+powdr_number = { git = "https://github.com/HappyZKFriends/powdr.git", branch="main", package="number" }
+
+
+[[bin]]
+name = "zkbeacon"
+path = "src/main.rs"

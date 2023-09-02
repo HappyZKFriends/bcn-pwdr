@@ -1124,7 +1124,10 @@ machine Main {
 	reg A21[<=];
 	reg A22[<=];
 	reg A23[<=];
+<<<<<<< HEAD
 	reg B0[<=];
+=======
+>>>>>>> aa16c29 (Minor refactor)
 	reg B1[<=];
 	reg B2[<=];
 	reg B3[<=];
@@ -1148,7 +1151,10 @@ machine Main {
 	reg B21[<=];
 	reg B22[<=];
 	reg B23[<=];
+<<<<<<< HEAD
 	reg C0[<=];
+=======
+>>>>>>> aa16c29 (Minor refactor)
 	reg C1[<=];
 	reg C2[<=];
 	reg C3[<=];
@@ -1172,7 +1178,10 @@ machine Main {
 	reg C21[<=];
 	reg C22[<=];
 	reg C23[<=];
+<<<<<<< HEAD
 	reg D0[<=];
+=======
+>>>>>>> aa16c29 (Minor refactor)
 	reg D1[<=];
 	reg D2[<=];
 	reg D3[<=];
@@ -1196,7 +1205,10 @@ machine Main {
 	reg D21[<=];
 	reg D22[<=];
 	reg D23[<=];
+<<<<<<< HEAD
 	reg E0[<=];
+=======
+>>>>>>> aa16c29 (Minor refactor)
 	reg E1[<=];
 	reg E2[<=];
 	reg E3[<=];
@@ -1220,6 +1232,7 @@ machine Main {
 	reg E21[<=];
 	reg E22[<=];
 	reg E23[<=];
+<<<<<<< HEAD
 	reg EQ[<=];
 	reg O;
 
@@ -1248,6 +1261,35 @@ machine Main {
 
 	instr assert_eq A0, A1 {
 		A0 = A1
+=======
+	reg OUT;
+
+	BLS12_381 bls;
+
+	instr arith A_0, A_1, A_2, A_3, A_4, A_5,
+				A_6, A_7, A_8, A_9, A_10, A_11,
+				A_12, A_13, A_14, A_15, A_16, A_17,
+				A_18, A_19, A_20, A_21, A_22, A_23,
+				B_0, B_1, B_2, B_3, B_4, B_5,
+				B_6, B_7, B_8, B_9, B_10, B_11,
+				B_12, B_13, B_14, B_15, B_16, B_17,
+				B_18, B_19, B_20, B_21, B_22, B_23,
+				C_0, C_1, C_2, C_3, C_4, C_5,
+				C_6, C_7, C_8, C_9, C_10, C_11,
+				C_12, C_13, C_14, C_15, C_16, C_17,
+				C_18, C_19, C_20, C_21, C_22, C_23,
+				D_0, D_1, D_2, D_3, D_4, D_5,
+				D_6, D_7, D_8, D_9, D_10, D_11,
+				D_12, D_13, D_14, D_15, D_16, D_17,
+				D_18, D_19, D_20, D_21, D_22, D_23,
+				E_0, E_1, E_2, E_3, E_4, E_5,
+				E_6, E_7, E_8, E_9, E_10, E_11,
+				E_12, E_13, E_14, E_15, E_16, E_17,
+				E_18, E_19, E_20, E_21, E_22, E_23 -> OUT = bls.arith
+
+	instr assert_eq X0, X1 {
+		X0 = X1
+>>>>>>> aa16c29 (Minor refactor)
 	}
 
 	instr loop { pc' = pc }
@@ -1265,12 +1307,20 @@ machine Main {
 
 	function main {
 
+<<<<<<< HEAD
 		O <== arith(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+=======
+		OUT <== arith(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+>>>>>>> aa16c29 (Minor refactor)
 					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+<<<<<<< HEAD
 		assert_eq O, 0x115cc0f5e7d690413df64c6b9662e9cf2a3617f2743245519e19607a4417189a;
+=======
+		assert_eq OUT, 0x115cc0f5e7d690413df64c6b9662e9cf2a3617f2743245519e19607a4417189a;
+>>>>>>> aa16c29 (Minor refactor)
 
 		return;
 	}
