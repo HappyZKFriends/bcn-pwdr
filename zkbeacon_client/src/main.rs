@@ -29,7 +29,10 @@ async fn main() -> Result<()> {
 
     client.start().await?;
 
-    let head_block_num = client.get_block_by_number(BlockTag::Number((18047230)), true).await?.unwrap();
+    let head_block_num = client
+        .get_block_by_number(BlockTag::Number((18047230)), true)
+        .await?
+        .unwrap();
     let addr = Address::from_str("0x00000000219ab540356cBB839Cbe05303d7705Fa")?;
     let block = BlockTag::Latest;
     let balance = client.get_balance(&addr, block).await?;
