@@ -30,6 +30,12 @@ machine BLS12_381(latch, function_id) {
 	}
 
 	constraints {
+
+		//FIXME: sadly powdr currently does not support >=, ternary operators or booleans
+		// CLK_0 should be always 1 when q (i % 48 == 0), otherwise it should be [1]*
+		// CLK_0 = [1, 0, 0, 0, 0, ... (47 times), 1, 0, 0, 0, ... (65520 times)] + [1]*;
+		macro CLK(index, i) { ( i >= 65520 || ((i % 48) == index)) ? 1n: 0n };
+
 		col witness function_id;
 		col fixed latch = [1]*;
 
@@ -39,54 +45,54 @@ machine BLS12_381(latch, function_id) {
 		*/
 		col fixed BYTE2(i) { i & 0xffff };
 		// 1 if CLK==0 and 0 if CLK!=0
-		col fixed CLK_0 = [1] + [0]*;
-		col fixed CLK_1 = [1] + [0]*;
-		col fixed CLK_2 = [1] + [0]*;
-		col fixed CLK_3 = [1] + [0]*;
-		col fixed CLK_4 = [1] + [0]*;
-		col fixed CLK_5 = [1] + [0]*;
-		col fixed CLK_6 = [1] + [0]*;
-		col fixed CLK_7 = [1] + [0]*;
-		col fixed CLK_8 = [1] + [0]*;
-		col fixed CLK_9 = [1] + [0]*;
-		col fixed CLK_10 = [1] + [0]*;
-		col fixed CLK_11 = [1] + [0]*;
-		col fixed CLK_12 = [1] + [0]*;
-		col fixed CLK_13 = [1] + [0]*;
-		col fixed CLK_14 = [1] + [0]*;
-		col fixed CLK_15 = [1] + [0]*;
-		col fixed CLK_16 = [1] + [0]*;
-		col fixed CLK_17 = [1] + [0]*;
-		col fixed CLK_18 = [1] + [0]*;
-		col fixed CLK_19 = [1] + [0]*;
-		col fixed CLK_20 = [1] + [0]*;
-		col fixed CLK_21 = [1] + [0]*;
-		col fixed CLK_22 = [1] + [0]*;
-		col fixed CLK_23 = [1] + [0]*;
-		col fixed CLK_24 = [1] + [0]*;
-		col fixed CLK_25 = [1] + [0]*;
-		col fixed CLK_26 = [1] + [0]*;
-		col fixed CLK_27 = [1] + [0]*;
-		col fixed CLK_28 = [1] + [0]*;
-		col fixed CLK_29 = [1] + [0]*;
-		col fixed CLK_30 = [1] + [0]*;
-		col fixed CLK_31 = [1] + [0]*;
-		col fixed CLK_32 = [1] + [0]*;
-		col fixed CLK_33 = [1] + [0]*;
-		col fixed CLK_34 = [1] + [0]*;
-		col fixed CLK_35 = [1] + [0]*;
-		col fixed CLK_36 = [1] + [0]*;
-		col fixed CLK_37 = [1] + [0]*;
-		col fixed CLK_38 = [1] + [0]*;
-		col fixed CLK_39 = [1] + [0]*;
-		col fixed CLK_40 = [1] + [0]*;
-		col fixed CLK_41 = [1] + [0]*;
-		col fixed CLK_42 = [1] + [0]*;
-		col fixed CLK_43 = [1] + [0]*;
-		col fixed CLK_44 = [1] + [0]*;
-		col fixed CLK_45 = [1] + [0]*;
-		col fixed CLK_46 = [1] + [0]*;
-		col fixed CLK_47 = [1] + [0]*;
+		col fixed CLK_0(i)  = CLK(0, i);
+		col fixed CLK_1(i)  = CLK(1, i);
+		col fixed CLK_2(i)  = CLK(2, i);
+		col fixed CLK_3(i)  = CLK(3, i);
+		col fixed CLK_4(i)  = CLK(4, i);
+		col fixed CLK_5(i)  = CLK(5, i);
+		col fixed CLK_6(i)  = CLK(6, i);
+		col fixed CLK_7(i)  = CLK(7, i);
+		col fixed CLK_8(i)  = CLK(8, i);
+		col fixed CLK_9(i)  = CLK(9, i);
+		col fixed CLK_10(i) = CLK(10, i);
+		col fixed CLK_11(i) = CLK(11, i);
+		col fixed CLK_12(i) = CLK(12, i);
+		col fixed CLK_13(i) = CLK(13, i);
+		col fixed CLK_14(i) = CLK(14, i);
+		col fixed CLK_15(i) = CLK(15, i);
+		col fixed CLK_16(i) = CLK(16, i);
+		col fixed CLK_17(i) = CLK(17, i);
+		col fixed CLK_18(i) = CLK(18, i);
+		col fixed CLK_19(i) = CLK(19, i);
+		col fixed CLK_20(i) = CLK(20, i);
+		col fixed CLK_21(i) = CLK(21, i);
+		col fixed CLK_22(i) = CLK(22, i);
+		col fixed CLK_23(i) = CLK(23, i);
+		col fixed CLK_24(i) = CLK(24, i);
+		col fixed CLK_25(i) = CLK(25, i);
+		col fixed CLK_26(i) = CLK(26, i);
+		col fixed CLK_27(i) = CLK(27, i);
+		col fixed CLK_28(i) = CLK(28, i);
+		col fixed CLK_29(i) = CLK(29, i);
+		col fixed CLK_30(i) = CLK(30, i);
+		col fixed CLK_31(i) = CLK(31, i);
+		col fixed CLK_32(i) = CLK(32, i);
+		col fixed CLK_33(i) = CLK(33, i);
+		col fixed CLK_34(i) = CLK(34, i);
+		col fixed CLK_35(i) = CLK(35, i);
+		col fixed CLK_36(i) = CLK(36, i);
+		col fixed CLK_37(i) = CLK(37, i);
+		col fixed CLK_38(i) = CLK(38, i);
+		col fixed CLK_39(i) = CLK(39, i);
+		col fixed CLK_40(i) = CLK(40, i);
+		col fixed CLK_41(i) = CLK(41, i);
+		col fixed CLK_42(i) = CLK(42, i);
+		col fixed CLK_43(i) = CLK(43, i);
+		col fixed CLK_44(i) = CLK(44, i);
+		col fixed CLK_45(i) = CLK(45, i);
+		col fixed CLK_46(i) = CLK(46, i);
+		col fixed CLK_47(i) = CLK(47, i);
 
 		/*
 		pol commit a[24];
