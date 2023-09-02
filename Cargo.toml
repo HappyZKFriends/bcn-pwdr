@@ -3,8 +3,8 @@
 resolver = "2"
 
 members = [
-    "cli",
+    "zkbeacon_cli",
     "zkbeacon_client",
 ]
 
-default-members = ["cli"]
+default-members = ["zkbeacon_cli"]
