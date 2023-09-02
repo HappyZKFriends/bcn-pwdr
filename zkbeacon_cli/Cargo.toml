@@ -8,11 +8,9 @@ edition = "2021"
 strip = true
 
 [dependencies]
-mktemp = "0.5.0"
 clap = { version = "^4.3.12", features = ["derive"] }
-compiler = { path = "../../powdr/compiler" }
-number = { path = "../../powdr/number" }
-backend = { path = "../../powdr/backend" }
+zkbeacon_powdr = { path = "../zkbeacon_powdr" }
+
 
 [[bin]]
 name = "zkbeacon"
