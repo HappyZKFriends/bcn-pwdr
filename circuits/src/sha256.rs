@@ -281,15 +281,14 @@ impl Default for Hash {
 
 #[no_mangle]
 fn main() {
-    //FIXME: add working example that tests the sha256 hash function
-    let mut s = Hash::new();
-    s.update([69u8, 1]);
-    let h = s.finalize();
+    let mut hasher = Hash::new();
+    hasher.update(b"hello world");
+    let hash = hasher.finalize();
     assert_eq!(
-        &h[..],
+        &hash[..],
         &[
-            112, 156, 120, 216, 86, 25, 79, 210, 155, 193, 32, 120, 116, 134, 237, 14, 198, 1, 64,
-            41, 124, 196, 103, 91, 109, 216, 36, 133, 4, 234, 218, 228
-        ]
+            185, 77, 39, 185, 147, 77, 62, 8, 165, 46, 82, 215, 218, 125, 171, 250, 196,
+            132, 239, 227, 122, 83, 128, 238, 144, 136, 247, 172, 226, 239, 205, 233
+        ] // b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9
     );
 }
