@@ -9,7 +9,7 @@ use helios::{config::networks::Network, prelude::*};
 async fn main() -> Result<()> {
     env_logger::Builder::from_env(Env::default().default_filter_or("info")).init();
 
-    let mainnet_rpc_url = "[REDACTED]";
+    let mainnet_rpc_url = "https://eth-mainnet.g.alchemy.com/v2/SPWo8qBxuzCQqpiyI0HdwoPoAwQmOJPG";
     println!("Using untrusted RPC URL [REDACTED]");
 
     let consensus_rpc = "https://www.lightclientdata.org";
