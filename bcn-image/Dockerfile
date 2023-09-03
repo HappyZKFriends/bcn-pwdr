@@ -23,5 +23,27 @@ RUN <<-EOF
     rustup target add riscv32imac-unknown-none-elf
 EOF
 
+RUN <<-EOF
+    set -eou pipefail
+    rustup toolchain install nightly-2023-01-03-x86_64-unknown-linux-gnu
+    rustup component add rust-src --toolchain nightly-2023-01-03-x86_64-unknown-linux-gnu
+    rustup component add rust-analyzer --toolchain nightly-2023-01-03-x86_64-unknown-linux-gnu
+EOF
+
+RUN <<-EOF
+    set -eou pipefail
+    cd /home/user/
+    git clone https://github.com/powdr-labs/powdr
+    git clone https://github.com/zkcrypto/pairing
+    git clone https://github.com/HappyZKFriends/zkbeacon
+EOF
+
 # Smoke test
 RUN rustc --version
+
+# TMP:
+#RUN <<-EOF
+#    set -eou pipefail
+#    cd /home/user/powdr/
+#    cargo run rust ../pairing/src/lib.rs --output-directory ../zkbeacon/circuits_data --force
+#EOF
