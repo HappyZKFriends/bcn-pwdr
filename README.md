@@ -14,12 +14,12 @@ elements when building such circuits by hand.
 The project was meant support many different consensus protocols, including those used by Aleph Zero and Celo, but currently
 the repository only provides a prototype targeting the Ethereum's beacon chain.
 
-## How to run
+## How to use
 
-### Install Rust toolchain
+### Dependencies
 
-```
-# replace the toolchain for whatever one you use
+The project requires a recent nightly version of Rust, which can be obtained via `rustup`:
+```bash
 rustup toolchain install nightly-2023-08-03-x86_64-unknown-linux-gnu
 rustup component add rust-src --toolchain nightly-2023-08-03-x86_64-unknown-linux-gnu
 
@@ -27,41 +27,50 @@ rustup component add rust-src --toolchain nightly-2023-08-03-x86_64-unknown-linu
 rustup component add rust-analyzer --toolchain nightly-2023-08-03-x86_64-unknown-linux-gnu
 ```
 
-### Running
+### Building the circuits
 
-#### Running using powdr_cli
+#### Prerequisites
 
-1. Clone or install our [powdr fork](https://github.com/HappyZKFriends/powdr).
-
-2. Compiling a rust circuit
-
+Clone the project and [powdr fork](https://github.com/HappyZKFriends/powdr):
 ```
+git clone https://github.com/HappyZKFriends/powdr
+git clone https://github.com/HappyZKFriends/bcn-powdr
+```
+
+#### Compiling Rust source into a circuit
+
+```bash
 rustup target add riscv32imac-unknown-none-elf
 cd powdr
-mkdir circuits_data
-cargo run rust ../zkbeacon/circuits/src/sha256.rs --output-directory ../zkbeacon/circuits_data --force
+cargo run rust ../bcn-powdr/circuits/src/sha256.rs --output-directory ../bcn-powdr/circuits_data --force
 ```
 
-3. Compiling a pil circuit
+#### Compiling a circuit written in PIL using powdr CLI
 
-- Compile and run pil/asm circuit
-```
+```bash
 cd powdr
-mkdir circuits_data
-cargo run pil ../zkbeacon/circuits/asm/arith384.asm --output-directory ../zkbeacon/circuits_data --force
+cargo run pil ../bcn-powdr/circuits/asm/arith384.asm --output-directory ../bcn-powdr/circuits_data --force
 ```
 
-### Running using the zkbeacon CLI and powdr API
+#### Compiling a circuit written in PIL using pilcom and powdr API
 
 - Install PILCOM
-```
-git clone https://github.com/0xPolygonHermez/pilcom.git
-cd pilcom
-npm install
-```
 
+    ```bash
+    git clone https://github.com/0xPolygonHermez/pilcom.git
+    cd pilcom
+    npm install
+    ```
 
-```
-cd zkbeacon
-PILCOM=$(PATH_TO_PILCOM)/pilcom/ cargo run --all-features zk-verifier run
-```
+- Compile the circuit
+
+    ```bash
+    cd bcn-powdr
+    PILCOM=$(PATH_TO_PILCOM)/pilcom/ cargo run --all-features zk-verifier run
+    ```
+
+    TODO: Unfinished
+
+#### Verifying the proofs
+
+TODO
