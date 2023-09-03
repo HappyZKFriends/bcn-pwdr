@@ -31,9 +31,8 @@ rustup component add rust-analyzer --toolchain nightly-2023-08-03-x86_64-unknown
 
 #### Prerequisites
 
-Clone the project and [powdr fork](https://github.com/HappyZKFriends/powdr):
+Clone the project:
 ```
-git clone https://github.com/HappyZKFriends/powdr
 git clone https://github.com/HappyZKFriends/bcn-powdr
 ```
 
