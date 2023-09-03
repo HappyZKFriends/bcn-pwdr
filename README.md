@@ -1,3 +1,9 @@
+<p align="center">
+<img alt="bcn_powdr logo" src="./static/static.jpg">
+</p>
+<p align="center">
+</p>
+
 # B𝕖𝕒c𝕠n P𝕠wd𝕖r
 
 Beacon Powder is a proof of concept of rapid development of blockchain consensus verification based on zero-knowledge proofs.
