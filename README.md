@@ -1,3 +1,19 @@
+# B𝕖𝕒c𝕠n P𝕠wd𝕖r
+
+Beacon Powder is a proof of concept of rapid development of blockchain consensus verification based on zero-knowledge proofs.
+The main feature is the use of [powdr](https://github.com/powdr-labs/powdr) framework to compile the state transition code written
+in an imperative language directly into a ZK circuit that could be used by a light client to trustlessly verify
+all the information it receives.
+
+## Project status
+
+At this stage the prototype does not verify the full state transition.
+To show off the capability we focused on verifying the BLS signatures in consensus blocks, which is one of the more challenging
+elements when building such circuits by hand.
+
+The project was meant support many different consensus protocols, including those used by Aleph Zero and Celo, but currently
+the repository only provides a prototype targeting the Ethereum's beacon chain.
+
 ## How to run
 
 ### Install Rust toolchain
