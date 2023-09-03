@@ -36,22 +36,7 @@ Clone the project:
 git clone https://github.com/HappyZKFriends/bcn-powdr
 ```
 
-#### Compiling Rust source into a circuit
-
-```bash
-rustup target add riscv32imac-unknown-none-elf
-cd powdr
-cargo run rust ../bcn-powdr/circuits/src/sha256.rs --output-directory ../bcn-powdr/circuits_data --force
-```
-
-#### Compiling a circuit written in PIL using powdr CLI
-
-```bash
-cd powdr
-cargo run pil ../bcn-powdr/circuits/asm/arith384.asm --output-directory ../bcn-powdr/circuits_data --force
-```
-
-#### Compiling a circuit written in PIL using pilcom and powdr API
+#### Compiling the circuits
 
 - Install PILCOM
 
@@ -68,8 +53,12 @@ cargo run pil ../bcn-powdr/circuits/asm/arith384.asm --output-directory ../bcn-p
     PILCOM=$(PATH_TO_PILCOM)/pilcom/ cargo run --all-features zk-verifier run
     ```
 
-    TODO: Unfinished
+    TODO: Unfinished, only compiles the `arith384.asm` example for now.
+
+#### Generating the proofs
+
+TODO: Unfinished
 
 #### Verifying the proofs
 
-TODO
+TODO: Unfinished
