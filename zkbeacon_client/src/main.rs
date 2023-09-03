@@ -5,9 +5,9 @@ use ethers::{types::Address, utils};
 use eyre::Result;
 use helios::{config::networks::Network, prelude::*};
 
-pub mod get_verifiers;
+pub mod beacon_apis;
 
-use get_verifiers::get_beacon_block_verifiers;
+use beacon_apis::get_beacon_block_verifiers;
 
 #[tokio::main]
 async fn main() -> Result<()> {
