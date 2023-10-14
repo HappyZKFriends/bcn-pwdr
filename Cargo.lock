@@ -790,7 +790,7 @@ checksum = "cd7cc57abe963c6d3b9d8be5b06ba7c8957a930305ca90304f24ef040aa6f961"
 [[package]]
 name = "client"
 version = "0.4.1"
-source = "git+https://github.com/HappyZKFriends/helios.git#e9f8efaa34b9356d6c54934d68f4af8ebc546039"
+source = "git+https://github.com/a16z/helios.git#0b4f1c09052cfc04e94c3dfe5eac311ef183deac"
 dependencies = [
  "common",
  "config",
@@ -882,7 +882,7 @@ checksum = "acbf1af155f9b9ef647e42cdc158db4b64a1b61f743629225fde6f3e0be2a7c7"
 [[package]]
 name = "common"
 version = "0.4.1"
-source = "git+https://github.com/HappyZKFriends/helios.git#e9f8efaa34b9356d6c54934d68f4af8ebc546039"
+source = "git+https://github.com/a16z/helios.git#0b4f1c09052cfc04e94c3dfe5eac311ef183deac"
 dependencies = [
  "ethers",
  "eyre",
@@ -918,7 +918,7 @@ dependencies = [
 [[package]]
 name = "config"
 version = "0.4.1"
-source = "git+https://github.com/HappyZKFriends/helios.git#e9f8efaa34b9356d6c54934d68f4af8ebc546039"
+source = "git+https://github.com/a16z/helios.git#0b4f1c09052cfc04e94c3dfe5eac311ef183deac"
 dependencies = [
  "common",
  "ethers",
@@ -938,7 +938,7 @@ dependencies = [
 [[package]]
 name = "consensus"
 version = "0.4.1"
-source = "git+https://github.com/HappyZKFriends/helios.git#e9f8efaa34b9356d6c54934d68f4af8ebc546039"
+source = "git+https://github.com/a16z/helios.git#0b4f1c09052cfc04e94c3dfe5eac311ef183deac"
 dependencies = [
  "async-trait",
  "bytes",
@@ -1748,7 +1748,7 @@ checksum = "0206175f82b8d6bf6652ff7d71a1e27fd2e4efde587fd368662814d6ec1d9ce0"
 [[package]]
 name = "execution"
 version = "0.4.1"
-source = "git+https://github.com/HappyZKFriends/helios.git#e9f8efaa34b9356d6c54934d68f4af8ebc546039"
+source = "git+https://github.com/a16z/helios.git#0b4f1c09052cfc04e94c3dfe5eac311ef183deac"
 dependencies = [
  "async-trait",
  "bytes",
@@ -2221,7 +2221,7 @@ checksum = "95505c38b4572b2d910cecb0281560f54b440a19336cbbcb27bf6ce6adc6f5a8"
 [[package]]
 name = "helios"
 version = "0.4.1"
-source = "git+https://github.com/HappyZKFriends/helios.git#e9f8efaa34b9356d6c54934d68f4af8ebc546039"
+source = "git+https://github.com/a16z/helios.git#0b4f1c09052cfc04e94c3dfe5eac311ef183deac"
 dependencies = [
  "client",
  "common",
@@ -2944,9 +2944,9 @@ dependencies = [
 
 [[package]]
 name = "log"
-version = "0.4.20"
+version = "0.4.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f"
+checksum = "518ef76f2f87365916b142844c16d8fefd85039bc5699050210a7778ee1cd1de"
 
 [[package]]
 name = "maybe-uninit"
@@ -3005,6 +3005,20 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e7810e0be55b428ada41041c41f32c9f1a42817901b4ccf45fa3d4b6561e74c7"
 dependencies = [
  "adler",
+]
+
+[[package]]
+name = "minreq"
+version = "2.9.2-alpha"
+source = "git+https://github.com/neonmoe/minreq.git?branch=master#b586b7cee828da5300217f7a93b81cb3edbbd109"
+dependencies = [
+ "log",
+ "once_cell",
+ "rustls 0.21.7",
+ "rustls-webpki 0.101.4",
+ "serde",
+ "serde_json",
+ "webpki-roots 0.25.2",
 ]
 
 [[package]]
@@ -3178,9 +3192,9 @@ dependencies = [
 
 [[package]]
 name = "object"
-version = "0.32.0"
+version = "0.32.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "77ac5bbd07aea88c60a577a1ce218075ffd59208b2d7ca97adf9bfc5aeb21ebe"
+checksum = "9cf5f9dd3933bd50a9e1f149ec995f39ae2c496d31fd772c1fd45ebc27e902b0"
 dependencies = [
  "memchr",
 ]
@@ -4494,9 +4508,9 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.105"
+version = "1.0.100"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "693151e1ac27563d6dbcec9dee9fbd5da8539b20fa14ad3752b2e6d363ace360"
+checksum = "0f1e14e89be7aa4c4b78bdbdc9eb5bf8517829a600ae8eaa39a6e1d960b5185c"
 dependencies = [
  "indexmap 2.0.0",
  "itoa",
@@ -5811,6 +5825,8 @@ dependencies = [
  "ethers",
  "eyre",
  "helios",
+ "minreq",
+ "serde_json",
  "tokio",
 ]
 

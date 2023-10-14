@@ -8,7 +8,9 @@ edition = "2021"
 [dependencies]
 dotenv = "0.15.0"
 env_logger = "0.10.0"
-ethers = "2.0.9"
+ethers = { version = "2.0.9", features=["celo"] }
 eyre = "0.6.8"
-helios = { git = "https://github.com/HappyZKFriends/helios.git" }
+helios = { git = "https://github.com/a16z/helios.git" }
 tokio = "1.32.0"
+minreq = { git = "https://github.com/neonmoe/minreq.git", branch="master", package="minreq", features=["json-using-serde", "https"] }
+serde_json = { version = ">=1.0.0, <1.0.101" } # this range works with the 1.48 MSRV
